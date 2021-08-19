@@ -1,0 +1,158 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2021 3:47:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ZENIFF"
+  DTS:CreatorName="AL\teitelbp"
+  DTS:DTSID="{3A60545E-EAFA-4B1B-B8C8-89B8BA3F5656}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{A7CF931D-F8ED-4DCE-A7EE-5E65A372E80D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Invalid_GL_BBMS_Gifts08181032.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D23C7F24-68DF-48EE-BA11-26C3F6C2BB1C}"
+      DTS:ObjectName="Invalid_GL_BBMS_Gifts08181032.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\shared\imports\invalid\Invalid_GL_BBMS_Gifts08181032.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSH Connection Manager 1]"
+      DTS:CreationName="SSH"
+      DTS:DTSID="{1459F87C-0CFC-4A00-BA26-E06E4C0EE07F}"
+      DTS:ObjectName="SSH Connection Manager 1">
+      <DTS:ObjectData>
+        <ConnectionManager
+          BackendVersion="2"
+          ConnectionString="ServerHost=as-sw-sftp-01;ServerPort=22;ServerUser=ateitelbp;ServerKeyFile=C:\temp\id_dsa;ServerTimeout=60;LogFile=;TransferBinary=True;ServerType=Unknown;ServerFingerprint=;Compression=True;RetainSameConnection=False;ProxyType=None;ProxyHost=;ProxyPort=80;ProxyUser=;"
+          ConnectByProxy="False">
+          <ServerPassword
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABLg1IFDGjub0XOarPjo+f6AAAAAASAAACgAAAAEAAAAKlFMJyq/ilR7KF7hvkoGLAYAAAAZAohQOGqKX2wTJ4y+k+gRvKxwgnrJh3nFAAAAOJpOE0EXoA1Yyh/8tVQHOZnM7Id</ServerPassword>
+          <ServerPassphrase
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACQrjH7Znqjx1jB8uDuq4QpAAAAAASAAACgAAAAEAAAAHAhFEUiDBexb3cXwVhhHXIgAAAAjg+w+/te/OH2g3YlnckHRSlyZiyC4Nf+h3n/2GA49Q0UAAAAndyVjsvAxZohJnQ2HwD7XSn8HhI</ServerPassphrase>
+        </ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{161F7A66-A60A-4828-B71F-A8E4F3B789F2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Filename">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{C8588F35-DC23-4BA9-83B9-D56F394A4C2C}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{A9DFBD13-0579-4D88-9366-BE614F3E8336}"
+        DTS:ObjectName="{A9DFBD13-0579-4D88-9366-BE614F3E8336}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\shared\imports\invalid" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File Transfer Task"
+          DTS:CreationName="CozyRoc.FileTransferTask"
+          DTS:Description="File Transfer Task"
+          DTS:DTSID="{6482497F-F524-4F4E-A01C-9503E2894222}"
+          DTS:ExecutableType="CozyRoc.FileTransferTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File Transfer Task"
+          DTS:TaskContact="File Transfer Task; COZYROC LLC; SSIS+; © 2006-2020 COZYROC LLC; All Rights Reserved; http://www.cozyroc.com/;"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileTransferData
+              Connection="{1459F87C-0CFC-4A00-BA26-E06E4C0EE07F}"
+              StopOnFailure="True"
+              Action="SendFiles"
+              IsLocalVariable="True"
+              Local="User::Filename"
+              IsRemoteVariable="False"
+              Remote="/GL"
+              OverwriteExisting="False"
+              Result=""
+              ExtendedRemoteFileInfo="True"
+              IsRemoteWildcard="True"
+              NoFilesFail="True"
+              IncludeSubfolders="False"
+              IsFilterVariable="False"
+              Filter=""
+              RemotePathSeparator="/" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C2B8BC7F-E27B-4F18-8760-2AEF71F04FC1}"
+          DTS:ObjectName="{C2B8BC7F-E27B-4F18-8760-2AEF71F04FC1}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Filename" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Foreach Loop Container\File Transfer Task"
+          TopLeft="130,72" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="460,271"
+          Size="460,314"
+          Id="Package\Foreach Loop Container"
+          TopLeft="489.5,49.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

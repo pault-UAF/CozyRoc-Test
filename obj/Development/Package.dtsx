@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2021 3:47:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ZENIFF"
+  DTS:CreatorName="AL\teitelbp"
+  DTS:DTSID="{3A60545E-EAFA-4B1B-B8C8-89B8BA3F5656}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{2A58483C-268E-4AAB-AF7F-B2C6C41D48EC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Invalid_GL_BBMS_Gifts08181032.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D23C7F24-68DF-48EE-BA11-26C3F6C2BB1C}"
+      DTS:ObjectName="Invalid_GL_BBMS_Gifts08181032.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\shared\imports\invalid\Invalid_GL_BBMS_Gifts08181032.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSH Connection Manager 1]"
+      DTS:CreationName="SSH"
+      DTS:DTSID="{1459F87C-0CFC-4A00-BA26-E06E4C0EE07F}"
+      DTS:ObjectName="SSH Connection Manager 1">
+      <DTS:ObjectData>
+        <ConnectionManager
+          BackendVersion="2"
+          ConnectionString="ServerHost=as-sw-sftp-01;ServerPort=22;ServerUser=ateitelbp;ServerKeyFile=C:\temp\id_dsa;ServerTimeout=60;LogFile=;TransferBinary=True;ServerType=Unknown;ServerFingerprint=;Compression=True;RetainSameConnection=False;ProxyType=None;ProxyHost=;ProxyPort=80;ProxyUser=;"
+          ConnectByProxy="False">
+          <ServerPassword
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACJjRC4bwXZdcxv/IRX6ha3AAAAAASAAACgAAAAEAAAAH/HvDuwwJsEihfykCVcdcwYAAAAxBEJK5rfS8XPh7tkvW9AloWOsyLbLvQvFAAAANvWnuQxMtQC1mngwDJm1wLCQtSk</ServerPassword>
+          <ServerPassphrase
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB0mhVr6SA0DHBd2PjaOXu1AAAAAASAAACgAAAAEAAAALKeTOXtfDuDsFM5+w220Y0gAAAA7kpwGnMGyTSprA584cwk68atpU5LU9s9becUtQKZzNgUAAAA5ifIwW0i3Ms42yKzn3/S1pHyEVk</ServerPassphrase>
+        </ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\File Transfer Task"
+      DTS:CreationName="CozyRoc.FileTransferTask"
+      DTS:Description="File Transfer Task"
+      DTS:DTSID="{6482497F-F524-4F4E-A01C-9503E2894222}"
+      DTS:ExecutableType="CozyRoc.FileTransferTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File Transfer Task"
+      DTS:TaskContact="File Transfer Task; COZYROC LLC; SSIS+; © 2006-2020 COZYROC LLC; All Rights Reserved; http://www.cozyroc.com/;"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileTransferData
+          Connection="{1459F87C-0CFC-4A00-BA26-E06E4C0EE07F}"
+          StopOnFailure="True"
+          Action="SendFiles"
+          IsLocalVariable="False"
+          Local="{D23C7F24-68DF-48EE-BA11-26C3F6C2BB1C}"
+          IsRemoteVariable="False"
+          Remote="/GL"
+          OverwriteExisting="False"
+          Result=""
+          ExtendedRemoteFileInfo="True"
+          IsRemoteWildcard="True"
+          NoFilesFail="True"
+          IncludeSubfolders="False"
+          IsFilterVariable="False"
+          Filter=""
+          RemotePathSeparator="/" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\File Transfer Task"
+          TopLeft="510,315" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
