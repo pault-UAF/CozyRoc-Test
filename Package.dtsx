@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{D10DFC67-3D4D-4835-B93C-4AC5AC59EA3F}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{5770574D-93AB-48F3-BB68-EAED93CC6CAB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,10 +43,10 @@
           ConnectByProxy="False">
           <ServerPassword
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAK9Xn8JRL5JKuZjE926UcPAAAAAASAAACgAAAAEAAAADPjQT0oMCL/J41z9MlULUAYAAAAQXs7r1K8foZ8CdtLUusuqK5pAVimUk7VFAAAALEIfBI3CVrwyGmBbK1B+irbFFqy</ServerPassword>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABlZlCxwVXJkv209ITR9d6YAAAAAASAAACgAAAAEAAAAFSRYjd5lmxy7e6s9P7LXB8YAAAA0Tgo6012byvmGLXY4N+AJwseK6YlcBZJFAAAAJbkB9yOGuuhVFyPsLzMbJR6vN0n</ServerPassword>
           <ServerPassphrase
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD6YblF23NXFOVU76RGEEefAAAAAASAAACgAAAAEAAAAIwFbwdqGaTbf+MOa6NlINogAAAA6YvCRi9uoNKYOQVm3U3WdgyDTH+2hpL6B+O0BYqoWWkUAAAA/U45+G8bSsX/CdaGgQY4SxGINVc</ServerPassphrase>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADn/XWnVK9h2upowFsNROWZAAAAAASAAACgAAAAEAAAAEnCQcAalptj/MnobJXcVfIgAAAAAUYKmQ3kkTMmp98L4+7G9IVItxONCVQSIYQ2iisCuTUUAAAAj8ElaPlUywljO8pFho1uqChCLXU</ServerPassphrase>
         </ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -101,13 +101,13 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Foreach Loop Container"
+      DTS:refId="Package\Foreach File in the File List"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
       DTS:DTSID="{D38B4A7F-D7D3-4796-8980-E00B03D3DD18}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Foreach Loop Container">
+      DTS:ObjectName="Foreach File in the File List">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFromVarEnumerator"
         DTS:DTSID="{7EA14748-E1A4-4382-BD6B-04AC806DFD14}"
@@ -120,13 +120,13 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Foreach Loop Container\File Transfer Task"
+          DTS:refId="Package\Foreach File in the File List\Transfer the File"
           DTS:CreationName="CozyRoc.FileTransferTask"
           DTS:Description="File Transfer Task"
           DTS:DTSID="{6482497F-F524-4F4E-A01C-9503E2894222}"
           DTS:ExecutableType="CozyRoc.FileTransferTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="File Transfer Task"
+          DTS:ObjectName="Transfer the File"
           DTS:TaskContact="File Transfer Task; COZYROC LLC; SSIS+; © 2006-2020 COZYROC LLC; All Rights Reserved; http://www.cozyroc.com/;"
           DTS:ThreadHint="0">
           <DTS:Variables />
@@ -161,13 +161,13 @@
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Script Task"
+      DTS:refId="Package\Get List of Files"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="Script Task"
       DTS:DTSID="{50F6EA83-7FA1-4048-8E3A-30577744AE23}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Script Task"
+      DTS:ObjectName="Get List of Files"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -792,10 +792,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{2676EB06-BA80-4F9A-9EFB-FEECD9CC7862}"
-      DTS:From="Package\Script Task"
+      DTS:From="Package\Get List of Files"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Foreach Loop Container" />
+      DTS:To="Package\Foreach File in the File List" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -810,46 +810,46 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="167,42"
-          Id="Package\Foreach Loop Container\File Transfer Task"
+          Size="159,42"
+          Id="Package\Foreach File in the File List\Transfer the File"
           TopLeft="117,65" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="418,282"
           Size="418,325"
-          Id="Package\Foreach Loop Container"
-          TopLeft="437,133" />
+          Id="Package\Foreach File in the File List"
+          TopLeft="422,250" />
         <NodeLayout
-          Size="134,42"
-          Id="Package\Script Task"
-          TopLeft="549,12" />
+          Size="155,42"
+          Id="Package\Get List of Files"
+          TopLeft="565,71" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="616,54">
+          TopLeft="642.5,113">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30,79"
+              EndConnector="-11.5,137"
               Start="0,0"
-              End="30,71.5">
+              End="-11.5,129.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.5" />
+                    End="0,64.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.5"
-                    Point2="0,39.5"
-                    Point3="4,39.5" />
+                    Point1="0,64.5"
+                    Point2="0,68.5"
+                    Point3="-4,68.5" />
                   <mssgle:LineSegment
-                    End="26,39.5" />
+                    End="-7.5,68.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="26,39.5"
-                    Point2="30,39.5"
-                    Point3="30,43.5" />
+                    Point1="-7.5,68.5"
+                    Point2="-11.5,68.5"
+                    Point3="-11.5,72.5" />
                   <mssgle:LineSegment
-                    End="30,71.5" />
+                    End="-11.5,129.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
