@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Invalid Files"
+  DTS:DTSID="{D23C7F24-68DF-48EE-BA11-26C3F6C2BB1C}"
+  DTS:CreationName="FILE">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::SourcePath]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:FileUsageType="2"
+      DTS:ConnectionString="C:\shared\imports\invalid\" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

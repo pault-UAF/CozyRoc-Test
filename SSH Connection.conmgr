@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SSH Connection"
+  DTS:DTSID="{1459F87C-0CFC-4A00-BA26-E06E4C0EE07F}"
+  DTS:CreationName="SSH">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::DestinationPath]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerHost">@[$Project::SSH_Host]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerKeyFile">@[$Project::SSH_KeyfilePath]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerPassphrase">@[$Project::SSH_PassPhrase]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerUser">@[$Project::SSH_User]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <ConnectionManager
+      BackendVersion="2"
+      ConnectionString="ServerHost=as-sw-sftp-01;ServerPort=22;ServerUser=teitelbpa;ServerKeyFile=C:\Temp\id_dsa;ServerTimeout=60;LogFile=;TransferBinary=True;ServerType=Unknown;ServerFingerprint=;Compression=True;RetainSameConnection=False;ProxyType=None;ProxyHost=;ProxyPort=80;ProxyUser=;"
+      ConnectByProxy="False">
+      <ServerPassword
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAACAAAAAAADZgAAwAAAABAAAAB7jbC7UGSlRYzZ65hrw3f0AAAAAASAAACgAAAAEAAAAMSJaQHCEimUBckpRPLj4oVoAAAAfaRPpuO3azVAmxe1oacL1ZAb4529CFJ15YTfvEsRNaQ2zmQmqfstfbQ33BxT1oSySEnK8Y/GLEyVh9B3tBJ1Vzt33nwgtgDi6tByMd4raw4qbDzTKGcN15u7oeM8xf4rnNONc0AP8ZoUAAAA9shcyjgi4X5tezTF2VftW1JnyiY=</ServerPassword>
+      <ServerPassphrase
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGRo3QrhRT02oCmphQSULEgAAAAACAAAAAAADZgAAwAAAABAAAADGSC/VOoijE5960xGtHIR0AAAAAASAAACgAAAAEAAAACRPnljTUoifpbLZ5So33v5wAAAAIwOvPcQrdheRL7C0VdRhZyVtNsG8qzFtkHWo7iKvB1d49VLD3N4G8rGKR0uaQcKn0U/1h/D4YoOsbC7gSFdB5MU2ZwApdj96ywxZ9Vee5CLtOQCLbK70CgVyiVqCTOO0K7MIOpMYoWHC4HTH5HzwUxQAAAAaZwg7YwHAl7KsBMBlJVzfwwXKDA==</ServerPassphrase>
+    </ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
